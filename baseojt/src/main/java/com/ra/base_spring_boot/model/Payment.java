@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -37,4 +39,8 @@ public class Payment extends BaseObject {
     @DecimalMin(value = "0.01", message = "Total must be greater than 0")
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal total;
+
+    private String transactionId;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
 }
